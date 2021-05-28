@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import { removeProduct } from "../../../functions/product";
 import { toast } from "react-toastify";
 
-import { getAllProducts } from "../../../functions/product";
+import { getAllProductsByCount } from "../../../functions/product";
 
 const AllProducts = () => {
   const { user } = useSelector((state) => ({ ...state }));
@@ -14,7 +14,7 @@ const AllProducts = () => {
 
   const getProducts = () => {
     setLoading(true);
-    getAllProducts(20).then((result) => {
+    getAllProductsByCount(20).then((result) => {
       setProducts(result.data);
       setLoading(false);
     });

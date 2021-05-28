@@ -8,12 +8,12 @@ export const createProduct = async (authToken, product) =>
   });
 
 export const updateProduct = async (authToken, product, slug) =>
-  await axios.post(`${process.env.REACT_APP_API}/product/${slug}`, product, {
+  await axios.put(`${process.env.REACT_APP_API}/product/${slug}`, product, {
     headers: {
       authToken,
     },
   });
-export const getAllProducts = async (count) =>
+export const getAllProductsByCount = async (count) =>
   await axios.get(`${process.env.REACT_APP_API}/products/${count}`);
 
 export const removeProduct = async (authToken, slug) =>

@@ -25,7 +25,7 @@ const initialState = {
   brand: "",
 };
 
-const ProductUpdate = ({ match }) => {
+const ProductUpdate = ({ match, history }) => {
   const { user } = useSelector((state) => ({ ...state }));
   const { slug } = match.params;
 
@@ -83,12 +83,13 @@ const ProductUpdate = ({ match }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    values.subs = arrayOfSubsId; //pushing values of subs into values object
+    values.category = categorySelected ? categorySelected : values.category;
     updateProduct(user.token, values, slug)
       .then((res) => {
         console.log(res);
-        window.alert(`Product "${res.data.title}" is updated sucessfully`);
-        window.location.reload();
+        toast.success(`"${res.data.title}" is updated sucessfully`);
+        history.push("/admin/products");
       })
       .catch((err) => {
         console.log(err);
