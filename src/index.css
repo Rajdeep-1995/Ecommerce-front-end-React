@@ -1,0 +1,7 @@
+.slide img {
+  height: 425px;
+  object-fit: cover;
+}
+.list-group li {
+  padding: 10px;
+}
