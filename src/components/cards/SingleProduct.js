@@ -15,7 +15,7 @@ const SingleProduct = ({ product }) => {
     <>
       <div className="col-md-7">
         {images && images.length ? (
-          <Carousel autoPlay infiniteLoop emulateTouch>
+          <Carousel autoPlay infiniteLoop emulateTouch showArrows>
             {images.map((photo) => (
               <img src={photo.url} key={photo.public_id} />
             ))}
