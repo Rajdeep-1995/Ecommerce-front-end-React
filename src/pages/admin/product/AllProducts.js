@@ -4,6 +4,7 @@ import AdminNav from "../../../components/nav/AdminNav";
 import { useSelector } from "react-redux";
 import { removeProduct } from "../../../functions/product";
 import { toast } from "react-toastify";
+import "antd/dist/antd.css";
 
 import { getAllProductsByCount } from "../../../functions/product";
 
@@ -25,20 +26,18 @@ const AllProducts = () => {
   }, []);
 
   const handleRemove = (slug) => {
-    if (window.confirm("Delete?")) {
-      removeProduct(user.token, slug)
-        .then((res) => {
-          console.log(res.data);
-          toast.success(`"${res.data.title}" is deleted`);
-          getProducts();
-        })
-        .catch((err) => {
-          console.log(err);
-          if (err.response.status === 400) {
-            toast.error(err.response.data);
-          }
-        });
-    }
+    removeProduct(user.token, slug)
+      .then((res) => {
+        console.log(res.data);
+        toast.success(`"${res.data.title}" is deleted`);
+        getProducts();
+      })
+      .catch((err) => {
+        console.log(err);
+        if (err.response.status === 400) {
+          toast.error(err.response.data);
+        }
+      });
   };
 
   return (

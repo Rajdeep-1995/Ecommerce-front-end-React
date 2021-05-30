@@ -24,6 +24,7 @@ import SubUpdate from "./pages/admin/subCat/SubUpdate";
 import ProductCreate from "./pages/admin/product/ProductCreate";
 import AllProducts from "./pages/admin/product/AllProducts";
 import ProductUpdate from "./pages/admin/product/ProductUpdate";
+import Product from "./pages/Product";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -81,6 +82,7 @@ const App = () => {
           path="/admin/product/:slug"
           component={ProductUpdate}
         />
+        <AdminRoute exact path="/product/:slug" component={Product} />
       </Switch>
     </>
   );

@@ -26,8 +26,6 @@ const initialState = {
   brand: "",
 };
 
-
-
 const ProductCreate = () => {
   const { user } = useSelector((state) => ({ ...state }));
   const [values, setValues] = useState(initialState);
